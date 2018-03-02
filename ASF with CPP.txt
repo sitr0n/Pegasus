@@ -1,0 +1,26 @@
+
+ASF in C++ executable project:
+
+1. Make C++ executable project
+2. Add ASF module to the project through the ASF wizard (ignoring warnings...)
+3. Remove the following files:
+	DeviceStartup/system_samd21.c
+	DeviceStartup/startup_samd21.c
+	src/main.c
+
+	(you should already have a main.cpp)
+
+4. Go to Project Properties > Toolchain > ARM/GNU C compiler > Directories
+
+	Delete the following paths:
+
+	$(PackRepoDir)\atmel\SAM4S_DFP\1.0.35\sam4s\include
+	$(PackRepoDir)\arm\cmsis\4.2.0\CMSIS\Include\
+
+5. Do the same for ARM/GNU C++ compiler
+6. Inside ARM/GNU C++ Compiler > Miscellaneous Add Flag -std=c++14 to enable all C++ features
+7. Go to main.cpp and replace #include "sam.h" with
+	
+	extern "C" {
+		#include <asf.h>
+	}
