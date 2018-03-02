@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-lib\Serial.cpp
+lib\Serial\Serial.cpp
 
 main.cpp
 

@@ -629,16 +629,16 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="lib\conf\confUSART.h">
+    <Compile Include="lib\Serial\conf\confUSART.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lib\Serial.cpp">
+    <Compile Include="lib\Serial\Serial.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lib\Serial.h">
+    <Compile Include="lib\Serial\Serial.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lib\SerialParameters.h">
+    <Compile Include="lib\Serial\SerialParameters.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.cpp">
@@ -1194,7 +1194,8 @@
   <ItemGroup>
     <Folder Include="Device_Startup\" />
     <Folder Include="lib" />
-    <Folder Include="lib\conf" />
+    <Folder Include="lib\Serial" />
+    <Folder Include="lib\Serial\conf\" />
     <Folder Include="src\" />
     <Folder Include="src\ASF\" />
     <Folder Include="src\ASF\common2\" />

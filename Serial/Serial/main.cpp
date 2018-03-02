@@ -7,7 +7,7 @@
 
 
 #include <asf.h>
-#include "lib/Serial.h"
+#include "lib/Serial/Serial.h"
 
 
 int main(void)
@@ -17,7 +17,7 @@ int main(void)
 	 
     char* myString;
 	Serial mySerial;
-	mySerial.initialize();
+	mySerial.initialize(SerialBaudrate::baud115200, SerialPort::SerialPort1);
 	
 	
     while (true) {

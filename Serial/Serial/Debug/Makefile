@@ -35,7 +35,8 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../Device_Startup/ \
 ../lib \
-../lib/conf \
+../lib/Serial \
+../lib/Serial/conf/ \
 ../src/ \
 ../src/ASF/ \
 ../src/ASF/common2/ \
@@ -99,7 +100,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../lib/Serial.cpp \
+../lib/Serial/Serial.cpp \
 ../main.cpp \
 ../src/ASF/sam0/drivers/sercom/sercom.c \
 ../src/ASF/sam0/drivers/sercom/usart/usart.c \
@@ -126,7 +127,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-lib/Serial.o \
+lib/Serial/Serial.o \
 main.o \
 src/ASF/sam0/drivers/sercom/sercom.o \
 src/ASF/sam0/drivers/sercom/usart/usart.o \
@@ -146,7 +147,7 @@ src/ASF/sam0/utils/cmsis/samd21/source/system_samd21.o \
 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
 
 OBJS_AS_ARGS +=  \
-lib/Serial.o \
+lib/Serial/Serial.o \
 main.o \
 src/ASF/sam0/drivers/sercom/sercom.o \
 src/ASF/sam0/drivers/sercom/usart/usart.o \
@@ -166,7 +167,7 @@ src/ASF/sam0/utils/cmsis/samd21/source/system_samd21.o \
 src/ASF/sam0/utils/syscalls/gcc/syscalls.o
 
 C_DEPS +=  \
-lib/Serial.d \
+lib/Serial/Serial.d \
 main.d \
 src/ASF/sam0/drivers/sercom/sercom.d \
 src/ASF/sam0/drivers/sercom/usart/usart.d \
@@ -186,7 +187,7 @@ src/ASF/sam0/utils/cmsis/samd21/source/system_samd21.d \
 src/ASF/sam0/utils/syscalls/gcc/syscalls.d
 
 C_DEPS_AS_ARGS +=  \
-lib/Serial.d \
+lib/Serial/Serial.d \
 main.d \
 src/ASF/sam0/drivers/sercom/sercom.d \
 src/ASF/sam0/drivers/sercom/usart/usart.d \
@@ -259,7 +260,7 @@ LINKER_SCRIPT_DEP+=  \
 
 
 
-lib/%.o: ../lib/%.cpp
+lib/Serial/%.o: ../lib/Serial/%.cpp
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-g++.exe$(QUOTE) -mthumb -D__SAMD21G18A__ -DDEBUG -DBOARD=USER_BOARD -DARM_MATH_CM0PLUS=true -DSYSTICK_MODE -DUSART_CALLBACK_MODE=true  -I"../src/ASF/common/boards" -I"../src/ASF/sam0/utils" -I"../src/ASF/sam0/utils/header_files" -I"../src/ASF/sam0/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam0/utils/cmsis/samd21/include" -I"../src/ASF/sam0/utils/cmsis/samd21/source" -I"../src/ASF/sam0/drivers/system" -I"../src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1" -I"../src/ASF/sam0/drivers/system/clock" -I"../src/ASF/sam0/drivers/system/interrupt" -I"../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samd21" -I"../src/ASF/sam0/drivers/system/pinmux" -I"../src/ASF/sam0/drivers/system/power" -I"../src/ASF/sam0/drivers/system/power/power_sam_d_r_h" -I"../src/ASF/sam0/drivers/system/reset" -I"../src/ASF/sam0/drivers/system/reset/reset_sam_d_r_h" -I"../src/ASF/common2/boards/user_board" -I"../src" -I"../src/config" -I"../src/ASF/sam0/drivers/port" -I"../src/ASF/common/services/serial" -I"../src/ASF/common2/services/delay" -I"../src/ASF/common2/services/delay/sam0" -I"../src/ASF/sam0/drivers/sercom" -I"../src/ASF/sam0/drivers/sercom/usart"  -O0 -ffunction-sections -fno-rtti -fno-exceptions -mlong-calls -g3 -Wall -mcpu=cortex-m0plus -c -std=c++14 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
