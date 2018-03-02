@@ -1,0 +1,22 @@
+/*
+ * confSerial.h
+ *
+ * Created: 01.03.2018 16:22:41
+ *  Author: Erik
+ */ 
+
+
+#ifndef CONFUSART_H_
+#define CONFUSART_H_
+
+
+#define configUSART_BAUDRATE			9600
+#define configUSART_TRANSFER_MODE		USART_TRANSFER_ASYNCHRONOUSLY
+#define configUSART_MUX_SETTING			USART_RX_3_TX_2_XCK_3
+#define configUSART_PINMUX_PAD0			PINMUX_PA06D_SERCOM0_PAD2
+#define configUSART_PINMUX_PAD1			PINMUX_PA07D_SERCOM0_PAD3
+#define configUSART_PINMUX_PAD2			PINMUX_UNUSED
+#define configUSART_PINMUX_PAD3			PINMUX_UNUSED
+
+
+#endif /* CONFUSART_H_ */
