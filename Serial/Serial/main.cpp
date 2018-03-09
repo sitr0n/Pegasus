@@ -15,15 +15,19 @@ int main(void)
 	system_init();
 	delay_init();
 	 
-    char* myString;
+	char* myString;
 	Serial mySerial;
 	mySerial.initialize(SerialBaudrate::baud115200, SerialPort::SerialPort1);
 	
 	
-    while (true) {
+	while (true) {
 		myString = mySerial.readString();
+		delay_ms(50);
+		/*
 		mySerial.writeString("Echo: ", 6);
 		mySerial.writeString(myString, 20);
 		mySerial.writeString("\n", 1);
-    }
+		*/
+		
+	}
 }

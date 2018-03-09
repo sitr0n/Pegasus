@@ -59,14 +59,10 @@ char* Serial::readString()
 		rxBuffer[j] = '\0';
 	}
 	
-	char rxByte;	
-	uint8_t i = 0;
-	
-	do 
+	for(uint8_t i = 0; i < 9; i++)
 	{
 		rxBuffer[i] = read();
-		rxByte = rxBuffer[i++];
-	} while (rxByte != '\r' && rxByte != '\n' && rxByte != '\0');
+	}
 	
 	return rxBuffer;
 	
