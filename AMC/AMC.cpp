@@ -4,7 +4,8 @@
 ****************************************/
 
 #include "AMC.h"
-
+#DEFINE UPPER_LIMIT 200
+#DEFINE LOWER_LIMIT 1
 
 AMC::AMC(double Kp, double Ti, uint16_t h)
 {
@@ -20,8 +21,9 @@ uint32_t AMC::tick(int r, int y)
 	_uk += (uint32_t)( _Kp*((1+1/_Ti)*(r - y) - _ek));
 	//Inverse error
 	_ek = r - y;
-	if(_uk > 200) _uk=200;
-	if(_uk < 1 ) _uk=1;
+	
+	if(_uk > UPPER_LIMIT) _uk = UPPER_LIMIT;
+	if(_uk < LOWER_LIMIT ) _uk = LOWER_LIMIT;
 
-	return uk;  
+	return _uk;  
 }
